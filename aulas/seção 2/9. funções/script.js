@@ -13,10 +13,8 @@ function sobrenome(name) {
     let nick = prompt('Digite seu sobrenome:')
     area.innerHTML = `Olá, Seja Bem vindo ${name} ${nick}`
 }
-
 function idade() {
     let idade = document.getElementById('idade')
-    let anos = prompt('Quantos anos você tem ?')    
-
+    let anos = prompt('Quantos anos você tem ?')
     idade.innerHTML = `Você tem ${anos} anos`
 }
