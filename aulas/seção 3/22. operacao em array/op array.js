@@ -34,3 +34,9 @@ const soma = numeros.reduce(function(acumulador, valorAtual) {
 },0)  // o número após o fechamento da função, indica o ponto de partida 
 console.log(soma)
 
+
+// .find
+const find = numeros.find(function(item){
+    return item == 3
+})
+console.log(find)
