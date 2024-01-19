@@ -28,7 +28,7 @@ console.log(posicao)
 // .reduce
 const soma = numeros.reduce(function(acumulador, valorAtual) {
     // valorAtual = cada elemento do array original
-    // acumulador = soma do 'valorAtual' anterior  com o valor acumulado até então
+    // acumulador = soma do 'valorAtual' anterior com o valor acumulado até então 
     console.log(`Valor Atual: ${valorAtual}, Acumulador: ${acumulador}`);
     return acumulador + valorAtual
 },0)  // o número após o fechamento da função, indica o ponto de partida 
