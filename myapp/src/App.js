@@ -1,3 +1,6 @@
+
+const Bemvindo = () => <h2>Bem-vindo!</h2>
+
 function App () {
   return(
     <div>
@@ -7,6 +10,5 @@ function App () {
   )
 }
 
-const Bemvindo = () => <h2>Bem-vindo!</h2>
 
 export default App
