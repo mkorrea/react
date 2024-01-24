@@ -12,7 +12,7 @@ function App () {
   return(
     <div>
       <h1>Olá mundo!</h1>
-      <div>
+      <div id="teste">
         <Bemvindo nome="Matheus" anos="23"/>
         <Bemvindo nome="Junior" anos="27"/>
       </div>
