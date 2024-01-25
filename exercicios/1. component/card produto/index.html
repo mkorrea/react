@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../myapp/public/favicon.ico" type="image/x-icon">
+  <title>Exercícios React</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+    * {
+      font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
+        margin: 10px;
+    }
+    body {
+        background-color: #162337;
+        color: white;
+        text-shadow: 1px 1px 1px rgba(48, 48, 48, 0.412);
+    }
+    div#enunciado {
+      padding: 15px;
+      border-radius: 15px;
+      font-size: 1.3em;
+      background-color: white;
+      color: black;
+    }
+    div.prod {
+      position: relative;
+      background: white;
+      width: 300px;
+      height: 400px;
+      border-radius: 15px;
+    }
+    div.prod div.nome {
+      text-align: center;
+      font-size: 1.6em;
+      color: black;
+      padding-top: 5px;
+    }
+    div.prod img {
+      width: 270px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -60%);
+    }
+    div.prod div.preco {
+      position: absolute;
+      color: orange;
+      font-size: 1.6em;
+      left: 50%;
+      transform: translateX(-60%);
+      bottom: 10px;
+      width: max-content;
+    }
+</style>
+</head>
+<body>
+  <div id="enunciado"></div>
+  <div id="root"></div>
+  <div class="prod">
+    <div class="nome">Logitech fone</div>
+      <img class="img" src="https://images.kabum.com.br/produtos/fotos/263077/headset-gamer-sem-fio-logitech-g435-lightspeed-e-bluetooth-dolby-atmos-usb-pc-ps4-ps5-mobile-drivers-40mm-preto-981-001049_1636554612_gg.jpg" alt="">
+    <div class="preco">R$ 400,00</div>
+  </div>
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+  
+  <script src="script.js" type="text/babel"></script>
+</body>
+</html>
