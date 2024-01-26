@@ -1,19 +1,20 @@
 const enun = document.getElementById('enunciado').innerText = 'Crie um componente funcional chamado Formulario que inclua um campo de input para o nome e um botão. Ao clicar no botão, o componente deve exibir um alerta com a mensagem "Olá, {nome digitado}!"'
 
 
-let nome = document.getElementById('nome')
-// function clicou(prop) {
-//   alert(`Olá, ${prop.nome}`)
-// }
 
-const Formulario = (prop) => {
+const botao = (props) => {
+  alert(`Olá, ${props.nome}`)
+}
+
+const Formulario = () => {
+  const click = () => {
+    const nome = document.getElementById('nome').value
+    botao({nome})}
+  
   return (
     <div>
-      <input type="text" id="nome"></input>
-      <button onclick="clicou()">Enviar</button>
-      {function clicou(prop) {
-  alert(`Olá, ${prop.nome}`)
-}}
+      <input type="text" id="nome" />
+      <button onClick={click}>Enviar</button>
     </div>
   )
 }
@@ -21,7 +22,7 @@ const Formulario = (prop) => {
 const App = () => {
   return (
     <div>
-      <Formulario nome={nome}/>
+      <Formulario />
     </div>
   );
 };
