@@ -9,7 +9,8 @@ const botao = (props) => {
 const Formulario = () => {
   const click = () => {
     const nome = document.getElementById('nome').value
-    botao({nome})}
+    botao({nome})
+  }
   
   return (
     <div>
