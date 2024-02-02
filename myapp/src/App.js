@@ -1,11 +1,12 @@
 
-const Bemvindo = (props) => {
-  return (
-    <div>
-      <h2>Bem-vindo! {props.nome}</h2>
-      <h3>Tenho {props.anos} anos</h3>
-    </div>
-  )
+import React, { Component } from 'react';
+
+class Equipe extends Component{
+  render(){
+    return(
+      <div> </div>
+    )
+  }
 }
 
 function App () {
@@ -13,8 +14,7 @@ function App () {
     <div>
       <h1>Olá mundo!</h1>
       <div id="teste">
-        <Bemvindo nome="Matheus" anos="23"/>
-        <Bemvindo nome="Junior" anos="27"/>
+        <Equipe />
       </div>
     </div>
   )
