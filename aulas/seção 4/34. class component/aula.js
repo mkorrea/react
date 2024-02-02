@@ -13,7 +13,11 @@ class Equipe extends React.Component {
   render() {
       return (
           <div>
-              <h1>Hello, React!</h1>
+              <h1>Hello, {this.props.nome} </h1>
+              {/* 
+                  Utilizar uma prop
+                "this" porque está fazendo referência ao próprio componente "Equipe"
+              */}
           </div>
       );
   }
@@ -22,7 +26,7 @@ class Equipe extends React.Component {
 const App = () => {
   return (
     <div>
-      <Equipe />
+      <Equipe nome="Matheus" />
     </div>
   )
 }
