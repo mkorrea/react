@@ -1,7 +1,9 @@
+/*
+    CICLO DE VIDA DOS COMPONENTES
+*/
 
-import React, { Component } from 'react';
 
-class App extends Component {
+class App extends React.Component {
 
   constructor(props){
     super(props)
@@ -29,4 +31,9 @@ class App extends Component {
 }
 
 
-export default App
+
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+);
