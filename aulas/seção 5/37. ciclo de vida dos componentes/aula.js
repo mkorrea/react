@@ -5,6 +5,7 @@
 
 class App extends React.Component {
 
+// MONTAGEM
   constructor(props){
     super(props)
     this.state = {
@@ -17,9 +18,18 @@ class App extends React.Component {
     setInterval( ()=>{
       this.setState({ hora: new Date().toLocaleTimeString() })
     }, 1000 )
-  }
+  } 
   // depois que o componente é montado, ele pode rodar o que tem nessa função a cima
   // só rodado uma ÚNICA vez
+
+// ATUALIZAÇÃO
+  componentDidUpdate(){
+    console.log('Atualizou!')
+  }
+  // Toda vez que o componente ou o state sofrer alguma alteração, o componentDidUpdate vai ser executado
+
+
+
 
   render(){
     return(
