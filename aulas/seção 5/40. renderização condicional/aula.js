@@ -1,3 +1,9 @@
+/*
+  renderização condicional
+
+  Esse operador “?” avalia o valor passado e caso seja verdadeiro, o primeiro valor após o ? é renderizado, : ( se não ), é executado o código seguinte
+*/
+
 import React, { Component } from 'react';
 
 class App extends Component {
@@ -24,3 +30,8 @@ class App extends Component {
 }
 
 export default App
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+);
