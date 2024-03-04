@@ -4,58 +4,51 @@ class App extends Component {
    constructor(props) {
       super(props);
       this.state = {
+         nome: "",
          email: "",
          senha: "",
-         sexo: "masculino",
       };
-
-      this.trocouSenha = this.trocouSenha.bind(this);
+      this.cadastro = this.cadastro.bind(this)
    }
-   trocouSenha(e) {
-      this.setState({ senha: e.target.value });
+
+   cadastro(event){
+      const {nome, email, senha} = this.state;
+      alert(`nome: ${nome} \nemail: ${email} \nsenha: ${senha}`);
+
+      event.preventDefault();
+      // previne da pagina atualizar ao clicar em cadastrar
    }
 
    render() {
       return (
          <div>
-            <label name="email">email: </label>
-            <input
-               type="email"
-               name="email"
-               value={this.state.email}
-               onChange={(e) => this.setState({ email: e.target.value })}
-               // onChange configura que a cada mudança no campo, vai acontecer determinada coisa, neste caso, atualizando o campo de email
-            ></input>
-            <br />
+            <h1> Formulário </h1>
 
-            <label name="senha">senha: </label>
-            <input
-               type="password"
-               name="senha"
-               value={this.state.senha}
-               onChange={this.trocouSenha}
-            ></input>
-            <br />
-            <label name="sexo">Sexo: </label>
-            <select
-               name="sexo"
-               value={this.state.sexo}
-               onChange={(e) => this.setState({ sexo: e.target.value })}
-            >
-               <option value="masculino"> Masc </option>
-               <option value="feminino"> Fem </option>
-            </select>
-
-            <br />
-            <br />
-            <br />
-            <h2>email: {this.state.email} </h2>
-            {this.state.senha.length === 0 ? (
-               <h2>senha: 🫣 </h2>
-            ) : (
-               <h2>senha: {this.state.senha} 👀</h2>
-            )}
-            <h2>sexo: {this.state.sexo} </h2>
+            <form onSubmit={this.cadastro}>
+               Nome:
+               <input
+                  type="text"
+                  value={this.state.nome}
+                  onChange={(event) =>
+                     this.setState({ nome: event.target.value })
+                  }
+               /><br/>
+               Email: 
+               <input
+                  type="email"
+                  value={this.state.email}
+                  onChange={(event) =>
+                     this.setState({ email: event.target.value })
+                  }
+               /><br/>
+               Senha:
+               <input 
+                  type="password"
+                  value={this.state.senha}
+                  onChange={ (event) => this.setState({ senha: event.target.value})} />
+               <button type="submit">Cadastrar</button>
+               {/* ao tem um botão do tipo "submit", envia o form e realiza a função de onSubmit */}
+            </form>
          </div>
       );
    }

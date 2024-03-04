@@ -40,8 +40,7 @@ class App extends Component {
             <h2>senha: 🫣 </h2>  
             :
             <h2>senha: 👀 {this.state.senha} </h2>  
-
-         }
+            }
          </div>
       );
    }
