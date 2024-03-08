@@ -1,3 +1,7 @@
+/*
+
+*/
+
 import React, { Component } from "react";
 import './assets/cronometro.css'
 
@@ -56,3 +60,8 @@ class App extends Component {
 
 
 export default App;
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+);
