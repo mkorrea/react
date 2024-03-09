@@ -6,7 +6,7 @@ class App extends Component {
       super(props);
       this.state = {
          timer: 0,
-         botao: 'Iniciar'
+         botao: 'Start'
       };
       this.crono = null
       this.iniciar = this.iniciar.bind(this)
@@ -20,11 +20,11 @@ class App extends Component {
             state.timer += 0.01
             this.setState(state)
          }, 10)
-         state.botao = 'Pausar'
+         state.botao = 'Stop'
       } else {
          clearInterval(this.crono)
          this.crono = null
-         state.botao = 'Iniciar'
+         state.botao = 'Start'
       }
       this.setState(state)
    }
@@ -34,7 +34,7 @@ class App extends Component {
       let state = this.state
       state.timer = 0
       this.setState(state)
-      state.botao = 'Iniciar'
+      state.botao = 'Start'
       this.setState(state)
    }
 
@@ -42,12 +42,12 @@ class App extends Component {
       return (
          <div className="container">
             <h1> Cronômetro</h1>
-            <img className="img" src={require("./assets/cronometro.png")} />
+            <img className="img" src={require("./assets/cronometro.png")} alt="imagem"/>
             <div className="timer" > {this.state.timer.toFixed(2)} </div>
             {/* ".toFixed() define a quantidade de casas decimais depois da vírgula" */}
             <div className="areaButtons">
                <p className="button" onClick={this.iniciar}> {this.state.botao} </p>
-               <p className="button" onClick={this.zerar}> Zerar </p>
+               <p className="button" onClick={this.zerar}> Reset </p>
             </div>
          </div>
       );
