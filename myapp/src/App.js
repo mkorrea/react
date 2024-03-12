@@ -1,58 +1,19 @@
-import React, { Component } from "react";
-import './assets/cronometro.css'
+import React, { Component, useState } from "react";
 
-class App extends Component {
-   constructor(props) {
-      super(props);
-      this.state = {
-         timer: 0,
-         botao: 'Start'
-      };
-      this.crono = null
-      this.iniciar = this.iniciar.bind(this)
-      this.zerar = this.zerar.bind(this)
-   }
-   
-   iniciar(){
-      let state = this.state
-      if(this.state.timer == 0 || this.crono == null){
-         this.crono = setInterval( () => {
-            state.timer += 0.01
-            this.setState(state)
-         }, 10)
-         state.botao = 'Stop'
-      } else {
-         clearInterval(this.crono)
-         this.crono = null
-         state.botao = 'Start'
-      }
-      this.setState(state)
-   }
+const Home = () => {
+   const [name, setName] = useState("Welcome");
 
-   zerar(){
-      clearInterval(this.crono)
-      let state = this.state
-      state.timer = 0
-      this.setState(state)
-      state.botao = 'Start'
-      this.setState(state)
-   }
+   return (
+      <div>
+         <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
 
-   render() {
-      return (
-         <div className="container">
-            <h1> Cronômetro</h1>
-            <img className="img" src={require("./assets/cronometro.png")} alt="imagem"/>
-            <div className="timer" > {this.state.timer.toFixed(2)} </div>
-            {/* ".toFixed() define a quantidade de casas decimais depois da vírgula" */}
-            <div className="areaButtons">
-               <p className="button" onClick={this.iniciar}> {this.state.botao} </p>
-               <p className="button" onClick={this.zerar}> Reset </p>
-            </div>
-         </div>
-      );
-   }
-}
+         <h1>{name}</h1>
+         <h2>{name}</h2>
+         
+         {name !== "junior" ? <h1>Bem vindo</h1> : <h2>tchau</h2>}
 
+      </div>
+   );
+};
 
-export default App;
+export default Home;
