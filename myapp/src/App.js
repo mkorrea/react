@@ -1,19 +1,31 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 
-const Home = () => {
-   const [name, setName] = useState("Welcome");
+function App () {
+   
+   const [toDo, setToDo] = useState([
+      'trabalhar',
+      'estudar react'
+   ])
+   
+   const [input, setInput] = useState('')
 
-   return (
+   function addTask () {
+      setToDo([...toDo, input])
+      setInput('')
+   }
+
+   return(
       <div>
-         <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+         <ul>
+            {toDo.map(task => (
+               <li key={task}> {task} </li>
+            ))}
+         </ul>
 
-         <h1>{name}</h1>
-         <h2>{name}</h2>
-         
-         {name !== "junior" ? <h1>Bem vindo</h1> : <h2>tchau</h2>}
-
+         <input type="text" value={input} onChange={e => setInput(e.target.value)}></input>
+         <button type="button" onClick={addTask}> Submit </button>
       </div>
-   );
-};
+   )
+}
 
-export default Home;
+export default App;
