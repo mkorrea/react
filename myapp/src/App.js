@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function App () {
    
@@ -8,6 +8,14 @@ function App () {
    ])
    
    const [input, setInput] = useState('')
+
+
+   useEffect( () => {
+      localStorage.setItem(`toDo`, JSON.stringify(toDo))
+      // quando 'toDo' for alterado ou atualizado, useEffect vai atualizar o localStorage
+   }, [toDo])
+
+// useEffect( () => { /* função a ser executada quando houver alteração na state */ }, [state])
 
    function addTask () {
       setToDo([...toDo, input])
