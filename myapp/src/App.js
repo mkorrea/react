@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 
 function App () {
    
@@ -26,10 +26,10 @@ function App () {
    // só vai executar essa const quando a state [ toDo ] sofrer alteração
 
 
-   function addTask () {
+   const addTask = (() => {
       setToDo([...toDo, input])
       setInput('')
-   }
+   }, [toDo, input] )
 
    return(
       <div>
