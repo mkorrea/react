@@ -1,3 +1,5 @@
+//  useEffect
+
 import React, { useState, useEffect } from "react";
 
 function App () {
@@ -13,7 +15,6 @@ function App () {
       }
    }, [])
    // utilizando o useEffect como um componentDidMount, ou seja, quando o componente é executado, ele executa esse useEffect
-
 
    useEffect( () => {
       localStorage.setItem(`toDo`, JSON.stringify(toDo))

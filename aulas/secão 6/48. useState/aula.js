@@ -8,7 +8,6 @@ function App () {
       'trabalhar',
       'estudar react'
    ])
-   
    const [input, setInput] = useState('')
 
    function addTask () {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 
 function App () {
    
@@ -14,7 +14,6 @@ function App () {
    }, [])
    // utilizando o useEffect como um componentDidMount, ou seja, quando o componente é executado, ele executa esse useEffect
 
-
    useEffect( () => {
       localStorage.setItem(`toDo`, JSON.stringify(toDo))
       // quando 'toDo' for alterado ou atualizado, useEffect vai atualizar o localStorage
@@ -22,6 +21,8 @@ function App () {
    // useEffect( () => { /* função a ser executada quando houver alteração na state */ }, [state] )
 
 
+   const contagem = useMemo( () => toDo.length,  [ toDo ] )
+   // O useMemo é um hook do React que serve para memorizar o resultado de uma função computacionalmente intensiva. Em outras palavras, ele armazena em cache o resultado de uma função e o retorna sempre que as dependências especificadas mudam.
 
 
    function addTask () {
@@ -39,6 +40,9 @@ function App () {
 
          <input type="text" value={input} onChange={e => setInput(e.target.value)}></input>
          <button type="button" onClick={addTask}> Submit </button>
+               
+         <br/>
+         <strong>{contagem}</strong>
       </div>
    )
 }
