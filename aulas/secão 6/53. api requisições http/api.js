@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import './assets/style.css'
 
 function App() {
    const [nutri, setNutri] = useState([]);
