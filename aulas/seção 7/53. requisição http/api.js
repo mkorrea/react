@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
-import './assets/style.css'
+import "./assets/style.css";
 
 function App() {
    const [nutri, setNutri] = useState([]);
-   const [links, setLinks] = useState(['https://google.com'])
+   const [links, setLinks] = useState(["https://google.com"]);
 
    useEffect(() => {
       function loadApi() {
          let url = "https://sujeitoprogramador.com/rn-api/?api=posts";
-         fetch(url)
-            .then((res) => res.json())
-            .then((json) => {
+         fetch(url) // fez a requisição da api
+            .then((res) => res.json()) // transformou o resultado da requisição em .json
+            .then((json) => { // então, atualizou a state 'nutri' com o .json
                setNutri(json);
             });
       }
@@ -27,9 +27,12 @@ function App() {
             return (
                <article key={item.id} className="post">
                   <strong className="titulo"> {item.titulo} </strong>
-                  <img src={item.capa} alt={item.titulo} className="capa"/>
+                  <img src={item.capa} alt={item.titulo} className="capa" />
                   <p className="texto"> {item.subtitulo} </p>
-                  <a className="botao" href={links} target="blank"> Acessar </a>
+                  <a className="botao" href={links} target="blank">
+                     {" "}
+                     Acessar{" "}
+                  </a>
                </article>
             );
          })}
