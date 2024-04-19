@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { db } from './firebaseConnections'
-import { doc, setDoc } from 'firebase/firestore'
+import { doc, setDoc, collection, addDoc } from 'firebase/firestore'
 import './app.css'
 
 function App() {
@@ -8,17 +8,35 @@ function App() {
    const [ idade, setIdade ] = useState('')
    
    async function handleAdd() {
-      await setDoc(doc( db, 'users', '3' ), {
+            //    await setDoc(doc( db, 'users', '3' ), {
+            //       nome: nome,
+            //       idade: idade,
+            //    })
+            //    .then(()=>{
+            //       console.log("Dados registrados")
+            //    })
+            //    .catch((erro)=>{
+            //       console.log("Erros nos dados: " + erro)
+            //    })
+// Adiciona os dados de nome e idade (dos inputs) á coleção "users" na minha conta do firebase
+// dentro do documento 3 (de maneira, com id fixo)
+      await addDoc(collection(db, "users"), {
          nome: nome,
          idade: idade,
       })
       .then(()=>{
-         console.log("Dados registrados")
+         alert("Dados registrados")
+         setNome('')
+         setIdade('')
       })
       .catch((erro)=>{
-         console.log("Erros nos dados: " + erro)
+         alert("Erros nos dados: " + erro)
       })
-   }
+      // Armazenamento de dados no firebase com id aleatorio, por causa do "addDoc" e "collection"
+      
+      }
+   
+
 
   return (
     <div>
