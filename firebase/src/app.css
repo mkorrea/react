@@ -16,4 +16,5 @@ button{
    height: 30px;
    background-color: bisque;
    cursor: pointer;
+   margin: 10px 0px;
 }
