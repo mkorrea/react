@@ -25,6 +25,10 @@ function App() {
       })
       }
    
+
+
+
+
    // Buscar por todos os docs do banco de dados:
    async function resgatarUser() {
       await getDocs(collection(db, 'users'))
@@ -46,6 +50,11 @@ function App() {
    }
 
 
+
+
+
+
+   
   return (
     <div>
            <h1> Cadastro com banco de dados </h1>

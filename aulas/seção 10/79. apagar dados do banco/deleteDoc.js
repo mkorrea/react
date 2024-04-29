@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { db } from './firebaseConnections'
-import { doc, setDoc, collection, addDoc, getDoc, getDocs, updateDoc } from 'firebase/firestore'
-//                         updateDoc, para atualizar dado do banco de dados
+import { doc, setDoc, collection, addDoc, getDoc, getDocs, updateDoc, deleteDoc } from 'firebase/firestore'
+//                         getDocs, para resgatar todos os docs do banco de dados
 import './app.css'
 
 function App() {
@@ -46,13 +46,6 @@ function App() {
       })
    }
 
-
-
-
-
-
-
-
    // atualizar informação no banco de dados:
    async function atualizarUser() {
       const docRef = doc(db, 'users', docId)
@@ -69,11 +62,25 @@ function App() {
    }
 
 
-
-
-
-
    
+   
+
+
+   async function excluirUser(id) {
+      const docRef = doc(db, 'users', id)
+      try {
+         await deleteDoc(docRef)
+      } catch(error){
+         console.error(error)
+      }
+   } 
+
+
+
+
+
+
+
   return (
     <div>
            <h1> Cadastro com banco de dados </h1>
@@ -101,7 +108,8 @@ function App() {
             <li key={user.id}>
                <span> id: {user.id}</span> <br/>
                <span> nome: {user.nome} </span> <br/>
-               <span> idade: {user.idade} </span> <br/><br/>
+               <span> idade: {user.idade} </span> <br/>
+               <button onClick={ () => excluirUser(user.id)}> Apagar usuario </button> <br/> <br/>
             </li> 
             )
          })}
