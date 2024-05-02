@@ -40,7 +40,6 @@ function App() {
             setUsers(usersList)
          })
       }
-      
       loadUsers()
    }, [])
 
@@ -105,7 +104,7 @@ function App() {
       try {
          await deleteDoc(docRef)
       } catch(error){
-         console.error(error)
+         console.error('Ocorreu um erro ao excluir o usuário:', error);
       }
    } 
 
