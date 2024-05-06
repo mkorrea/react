@@ -26,7 +26,6 @@ function App() {
    const [ senha, setSenha ] = useState('')
  
 
-
    useEffect( ()=> {
       async function loadUsers() {
          const unsub = onSnapshot(collection(db, 'users'), (snapshot) => {
@@ -46,12 +45,6 @@ function App() {
       loadUsers()
    }, [])
 
-
-
-
-
-
-   
    async function handleAdd() {
       await addDoc(collection(db, "users"), {
          nome: nome,
@@ -113,6 +106,11 @@ function App() {
 
 
 
+
+
+
+
+
    async function novoUser() {
       await createUserWithEmailAndPassword(auth, email, senha)
       .then(() => {
@@ -123,6 +121,13 @@ function App() {
          console.error(error)
       })
    }
+
+
+
+
+
+
+
 
    
    
