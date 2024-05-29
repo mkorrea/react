@@ -14,7 +14,8 @@ import {
 import { 
    createUserWithEmailAndPassword,
    signInWithEmailAndPassword,
-   signOut
+   signOut,
+   onAuthStateChanged
 } from 'firebase/auth'
 //                         getDocs, para resgatar todos os docs do banco de dados
 import './app.css'
@@ -51,6 +52,39 @@ function App() {
       
       loadUsers()
    }, [])
+
+
+
+
+
+
+
+   useEffect(()=>{
+      async function checkLogin() {
+         onAuthStateChanged(auth, (user)=>{
+            if(user){
+               setUserDetail({
+                  id: user.uid,
+                  email: user.email
+               })
+               setUserLogin(true)
+            } else {
+               setUserLogin(false)
+               setUserDetail({})
+            }
+         })
+      }
+      checkLogin()
+   }, [])
+
+
+
+
+
+
+
+
+
    
    async function handleAdd() {
       await addDoc(collection(db, "users"), {
@@ -122,12 +156,6 @@ function App() {
       })
    }
 
-
-
-
-
-
-
    async function logarUser() {
       await signInWithEmailAndPassword(auth, email, senha)
       .then((value) => {
@@ -155,13 +183,6 @@ function App() {
          console.error("erro ao deslogar")
       })
    }
-
-
-
-
-
-
-
 
   return (
     <div>
